@@ -1,14 +1,18 @@
 import './App.css';
-import BattleScreen from './components/BattleScreen';
+import GameScreen from './components/GameScreen';
+import { ThemeProvider } from '@emotion/react';
+import { theme } from './styles/theme';
 
 function App() {
   return (
-    <div className="App">
-        <img src="switch.png" style={{
-            width: "80vw"
-        }} />
-        <BattleScreen />
-    </div>
+      <ThemeProvider theme={theme}>
+        <div className="App">
+            <img src="switch.png" style={{
+                width: "80vw"
+            }} />
+            <GameScreen />
+        </div>
+      </ThemeProvider>
   );
 }
 

@@ -1,11 +1,25 @@
 import { Button } from '@mui/material';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { BASE_URL } from '../constants';
 import BattleScreen from './BattleScreen';
+import { listenForWinEvents } from '../services/events';
+import MintLootboxScreen from './MintLootboxScreen';
 
 export const GameScreen = () => {
     const [gameStarted, hasGameStarted] = useState(false)
+    const [hasWonPreviousBattle, setHasWonPreviousBattle] = useState(undefined)
     const [gameURL, setGameURL] = useState(BASE_URL)
+
+    console.log(gameStarted, hasWonPreviousBattle)
+
+    const updateGameFromPlayerResult = (status) => {
+        hasGameStarted(false)
+        setHasWonPreviousBattle(status === "lose")
+    }
+
+    useEffect(() => {
+        listenForWinEvents(updateGameFromPlayerResult)
+    }, [])
 
     const renderMenu = () => (
         <div style={gameStyles.gameBackground}>
@@ -34,7 +48,7 @@ export const GameScreen = () => {
 
     return <>
         {gameStarted && <BattleScreen url={gameURL} />}
-        {/*{gameStarted && <MintLootboxScreen />}*/}
+        {!gameStarted && hasWonPreviousBattle && <MintLootboxScreen />}
         {!gameStarted && renderMenu()}
     </>
 }

@@ -1,4 +1,5 @@
 export const BattleScreen = ({ url }) => {
+
     const nintendoSwitchScreenRatio = 692 / 1302
     return <iframe style={{
         position: "absolute",

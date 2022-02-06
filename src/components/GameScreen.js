@@ -8,7 +8,7 @@ export const GameScreen = () => {
     const [gameURL, setGameURL] = useState(BASE_URL)
 
     const renderMenu = () => (
-        <div style={styles.gameBackground}>
+        <div style={gameStyles.gameBackground}>
             <Button
                 variant="contained"
                 sx={{
@@ -39,7 +39,7 @@ export const GameScreen = () => {
 }
 
 const nintendoSwitchScreenRatio = 692 / 1302
-const styles = {
+export const gameStyles = {
     gameBackground: {
         position: "absolute",
         border: 0,

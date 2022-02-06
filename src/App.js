@@ -1,5 +1,5 @@
 import './App.css';
-import GameScreen from './components/GameScreen';
+import BattleScreen from './components/BattleScreen';
 
 function App() {
   return (
@@ -7,7 +7,7 @@ function App() {
         <img src="switch.png" style={{
             width: "80vw"
         }} />
-        <GameScreen />
+        <BattleScreen />
     </div>
   );
 }

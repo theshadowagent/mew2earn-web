@@ -103,6 +103,14 @@ export const theme = createTheme({
             fontSize: "14px !important",
             textTransform: "none",
         },
+        h1: {
+            fontFamily: "Rubik, Circe, San Francisco, Roboto, Helvetica, sans-serif",
+            fontSize: 20,
+            lineHeight: 1.5,
+            fontWeight: 900,
+            color: "#fff",
+            textTransform: "uppercase"
+        },
         h4: {
             fontWeight: 600
         },

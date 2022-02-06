@@ -1,7 +1,7 @@
 import { Button } from '@mui/material';
 import { useState } from 'react';
-import BattleScreen from './BattleScreen';
 import { BASE_URL } from '../constants';
+import BattleScreen from './BattleScreen';
 
 export const GameScreen = () => {
     const [gameStarted, hasGameStarted] = useState(false)
@@ -34,6 +34,7 @@ export const GameScreen = () => {
 
     return <>
         {gameStarted && <BattleScreen url={gameURL} />}
+        {/*{gameStarted && <MintLootboxScreen />}*/}
         {!gameStarted && renderMenu()}
     </>
 }

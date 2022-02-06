@@ -3,12 +3,14 @@ import Web3 from 'web3';
 import { WalletState } from './Web3Context';
 
 let web3AuthInstance = null;
+export let web3 = null;
 
 export const initWeb3Auth = async (setWeb3State) => {
     // ⭐️ STEP: 1
     web3AuthInstance = new Web3Auth({
         chainConfig: {
-            chainNamespace: "eip155"
+            chainNamespace: "eip155",
+            chainId: `0x${(137).toString(16)}`
         },
         clientId: "BBTkiWNqG4YdXVqfuuffGIgcX6HJZcVSiung7iR5DlpkpXcK9A9Ai_veWlMHZhT9wYiP1IkF_HLt4BUKrQ68ZjM",
     });
@@ -21,7 +23,7 @@ export const initWeb3Auth = async (setWeb3State) => {
     await web3AuthInstance.initModal();
 
     // ⭐️ STEP: 4
-    login(setWeb3State);
+    web3 = await login(setWeb3State);
     return web3AuthInstance
 }
 

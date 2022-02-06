@@ -1,9 +1,11 @@
 import { Button } from '@mui/material';
 import { useState } from 'react';
 import BattleScreen from './BattleScreen';
+import { BASE_URL } from '../constants';
 
 export const GameScreen = () => {
     const [gameStarted, hasGameStarted] = useState(false)
+    const [gameURL, setGameURL] = useState(BASE_URL)
 
     const renderMenu = () => (
         <div style={styles.gameBackground}>
@@ -12,15 +14,17 @@ export const GameScreen = () => {
                 sx={{
                     width: "210px",
                 }}
-                onClick={() => {
-                    hasGameStarted(true)
-                }}>
+                onClick={() => hasGameStarted(true)}>
                 <span className="unskew">Random battle</span>
             </Button>
             <Button
                 sx={{
                     mt: 2,
                     width: "210px",
+                }}
+                onClick={() => {
+                    setGameURL(`${BASE_URL}#teambuilder`)
+                    hasGameStarted(true)
                 }}
                 variant="contained">
                 <span className="unskew">Own team battle</span>
@@ -29,7 +33,7 @@ export const GameScreen = () => {
     )
 
     return <>
-        {gameStarted && <BattleScreen />}
+        {gameStarted && <BattleScreen url={gameURL} />}
         {!gameStarted && renderMenu()}
     </>
 }

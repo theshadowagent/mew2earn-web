@@ -18,6 +18,29 @@
   color: white;
 }
 
+.pokeball {
+  width: 5vw;
+  max-width: 48px;
+  position: absolute;
+}
+
+.pokeball:hover {
+  animation: tilt 0.5s linear;
+  cursor: pointer;
+}
+
+@keyframes tilt {
+  0% {
+    transform: rotate(8deg);
+  }
+  50% {
+    transform: rotate(-4deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
 .App-link {
   color: #61dafb;
 }

@@ -1,4 +1,4 @@
-import { createStyles, Typography} from '@mui/material';
+import { Typography} from '@mui/material';
 import { mintLootbox } from '../services/mint';
 
 export const MintLootboxScreen = () => {
@@ -7,8 +7,8 @@ export const MintLootboxScreen = () => {
         const positionX = Math.abs(index) === 1 ? `${Math.sign(index) * 18}vw` : "0"
         const positionY = Math.abs(index) === 0 ? "-4vw" : "8vw"
         return <img
+            className="pokeball"
             style={{
-                ...styles.pokeball,
                 marginLeft: positionX,
                 marginTop: positionY
             }}
@@ -63,14 +63,6 @@ const styles = {
         backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), ${gameBackground.backgroundImage}`,
         backgroundRepeat: "no-repeat",
         backgroundSize: 'cover'
-    },
-    pokeball: {
-        width: "5vw",
-        maxWidth: "48px",
-        position: "absolute",
-        "&:hover": {
-            cursor: "pointer"
-        },
     }
 }
 
